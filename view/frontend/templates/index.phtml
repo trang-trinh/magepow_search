@@ -1,0 +1,68 @@
+<?php
+/**
+ * @var $block \Magepow\Search\Block\Index\Index
+ */
+?>
+<?php
+$helper = $this->helper('Magepow\Search\Helper\Data');
+$attributeSearch = $helper->getConfigModule('source_option/search_attribute');
+$attributeSearch = $helper->getConfigArraySerialized($attributeSearch);
+
+?>
+<div class="container">
+    <form method="POST" action="<?= $block->getSearchPostUrl() ?>">
+        <?php foreach ($attributeSearch as $key => $value) {
+            if($key === array_key_first($attributeSearch)) {
+            ?>
+            <?php $attributeCode1 = $value['attribute']; ?>
+                <div class=row>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><?= $value['title'] ?></label>
+                            <input type="hidden" id="attribute_code1" name="attribute_code1" value="<?= $attributeCode1 ?>"/>
+                            <select class="form-control" id="attribute_option1" name="attribute_option1">
+                                <option value="">Please Select</option>
+                                <?php foreach ($block->getAttributeOption($attributeCode1) as $attrOption) { ?>
+                                    <?php $attributeValue = $attrOption->getValue(); $attributeLabel = $attrOption->getLabel(); ?>
+                                    <option value="<?= $attributeValue ?>"><?= $attributeLabel ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        <?php } else {?>
+                <?php
+                $attributeCode2 = $value['attribute'];
+                ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><?= $value['title'] ?></label>
+                            <input type="hidden" id="attribute_code2" name="attribute_code2" value="<?= $attributeCode2 ?>"/>
+                            <select class="form-control" id="attribute_option2" name="attribute_option2">
+<!--                                <option>Please Select</option>-->
+<!--                                --><?php //foreach ($block->getAttributeOption($Code) as $attrOption ) { ?>
+<!--                                <option value="--><?//= $attrOption->getValue() ?><!--">--><?//= $attrOption->getLabel() ?><!--</option>-->
+<!--                                --><?php //} ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+    	<?php } ?>
+    	<div class="row">
+    		<div class="col-md-6">
+    			<div class="form-group">
+    				<button class="btn btn-success" type="submit">Search</button>
+    			</div>
+    		</div>
+    	</div>
+    </form>
+</div>
+<?php if (true): ?>
+    <script>
+        require(['jquery','myjs'], function ($ , myJquery) {
+            myJquery();
+        });
+    </script>
+<?php endif; ?>

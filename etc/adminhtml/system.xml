@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magepow" translate="label" sortOrder="10">
+            <label>Magepow</label>
+        </tab>
+        <section id="magepow_search" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Attribute Search</label>
+            <tab>magepow</tab>
+            <resource>Magepow_Search::attribute_config</resource>
+<!--            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">-->
+<!--                <label>General Configuration</label>-->
+<!--                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">-->
+<!--                    <label>Module Enable</label>-->
+<!--                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>-->
+<!--                </field>-->
+<!--            </group>-->
+            <group id="source_option" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Source Option</label>
+                <field id="search_attribute" translate="label comment tooltip" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Config Display</label>
+                    <frontend_model>Magepow\Search\Block\System\Config\Form\Field\Tab\Attributes</frontend_model>
+                    <backend_model>Magepow\Search\Model\Design\Backend\Tab\Attribute</backend_model>
+                    <comment>Config Displayin detail page</comment>
+                    <tooltip>Config Display custom.</tooltip>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

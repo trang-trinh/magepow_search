@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magepow_Search::magepow_attribute" title="Magepow" translate="title" module="Magepow_Search" sortOrder="10" resource="Magepow_Search::magepow_attribute" />
+        <add id="Magepow_Search::attribute" title="Manager Attribute" translate="title" module="Magepow_Search" parent="Magepow_Search::magepow_attribute" action="catalog/product_attribute/" resource="Magepow_Search::attribute"/>
+        <add id="Magepow_Search::attribute_config" title="Arttibute Configuration" translate="title" module="Magepow_Search" parent="Magepow_Search::magepow_attribute" action="admin/system_config/edit/section/attribute_search/" resource="Magepow_Search::attribute_config"/>
+    </menu>
+</config>
